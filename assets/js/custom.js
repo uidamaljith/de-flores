@@ -14,4 +14,12 @@ $(function () {
       $(".main-content.home").height(bodyHgt - setHgt);
     }, 500);
   }
+  $(document).on('click','.handberg',function(event){
+    event.preventDefault()
+    $('#menu').fadeIn();
+  })
+  $(document).on('click','.close-btn',function(event){
+    event.preventDefault()
+    $('#menu').fadeOut();
+  })
 });

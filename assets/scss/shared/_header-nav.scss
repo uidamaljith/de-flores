@@ -1,0 +1,115 @@
+.header-nav {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 9999;
+  .handberg {
+    background-color: rgba($black, 0.5);
+    padding: 34px 20px;
+    display: block;
+    @include border-radius(100px);
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+    span {
+      height: 2px;
+      width: 30px;
+      background-color: $white;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        height: 2px;
+        width: 100%;
+        background-color: $white;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        height: 2px;
+        width: 100%;
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black, 0.7);
+  z-index: 99999;
+  @include flexbox();
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+//   transition: 4s;
+//   display: none;
+//   &.open{
+//     @include flexbox();
+//   }
+  ul {
+    li {
+      a {
+        font-size: px-em(57px);
+        font-weight: normal;
+        line-height: 48px;
+        color: rgba($white, 0.8);
+        padding: 20px;
+        display: block;
+        &:hover{
+            background-color: rgba($black, 1);
+            color: rgba($white, 1);
+        }
+      }
+    }
+  }
+
+  .close-btn {
+    background-color: rgba($black, 0.5);
+    border: 2px solid rgba($white, 1);
+    padding: 34px 20px;
+    display: inline-block;
+    @include border-radius(100px);
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+    margin-right: auto;
+    width: 70px;
+    span {
+      height: 2px;
+      width: 3px;
+      @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+    //   background-color: $white;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        height: 2px;
+        width: 30px;
+        background-color: $white;
+        @include rotate(45deg);
+        // @include transform-origin(4px 3px);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        height: 2px;
+        width: 30px;
+        background-color: $white;
+        @include rotate(-45deg);
+        // @include transform-origin(7px 0px);
+      }
+    }
+  }
+}
