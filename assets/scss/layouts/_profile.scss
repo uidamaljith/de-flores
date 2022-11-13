@@ -3,8 +3,44 @@
 }
 .main-content {
     &.profile{
-        p{
-            color: $white;
+       .left-content-de-flores{
+        padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    @include device(lg){
+        padding: 15px 0 0 40px;
+    
+    }
+      .inner-content-de-flores{
+        overflow: scroll;
+      
+         .first-content{
+            padding-bottom: 20px;
+                        }
+             }
+       .signature-content{
+        a{
+            color: #292A38;
+            img{
+                padding-right: 5px;
+                @include device(lg){
+                    padding-right: 10px;
+                }
+              
+            }
         }
+       }
+       }
+       .right-content-de-flores{
+        @include device(lg){
+            @include flexbox();
+            place-self: flex-end;
+            padding-left: 123px;
+        }
+        figure{
+            margin-bottom: 0;
+        }
+       }
     }
 }
