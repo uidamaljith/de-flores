@@ -15,9 +15,17 @@ $(function () {
   console.log(footerHgt);
       $(".main-content.home").height(bodyHgt - setHgt);
     }, 500);
-  }
-  else{
+  }else{
     $(".inner-content-de-flores").height(bodyHgt - signatureHgt);
   }
- 
+
+  $(document).on('click','.handberg',function(event){
+    event.preventDefault()
+    $('#menu').fadeIn();
+  })
+  $(document).on('click','.close-btn',function(event){
+    event.preventDefault()
+    $('#menu').fadeOut();
+  })
+
 });
