@@ -522,4 +522,47 @@ body .footer#footer-mob p {
   body .footer#footer-mob p {
     display: none;
   }
+}
+
+.profile-body {
+  background: url(/assets/images/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
+}
+
+.main-content.profile .left-content-de-flores {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+@media (min-width: 992px) {
+  .main-content.profile .left-content-de-flores {
+    padding: 15px 0 0 40px;
+  }
+}
+.main-content.profile .left-content-de-flores .inner-content-de-flores {
+  overflow: scroll;
+}
+.main-content.profile .left-content-de-flores .inner-content-de-flores .first-content {
+  padding-bottom: 20px;
+}
+.main-content.profile .left-content-de-flores .signature-content a {
+  color: #292A38;
+}
+.main-content.profile .left-content-de-flores .signature-content a img {
+  padding-right: 5px;
+}
+@media (min-width: 992px) {
+  .main-content.profile .left-content-de-flores .signature-content a img {
+    padding-right: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .main-content.profile .right-content-de-flores {
+    display: flex;
+    place-self: flex-end;
+    padding-left: 123px;
+  }
+}
+.main-content.profile .right-content-de-flores figure {
+  margin-bottom: 0;
 }/*# sourceMappingURL=master.css.map */
