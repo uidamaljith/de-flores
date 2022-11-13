@@ -1,0 +1,10 @@
+.profile-body{
+    background: url(#{$assetPath}/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
+}
+.main-content {
+    &.profile{
+        p{
+            color: $white;
+        }
+    }
+}
