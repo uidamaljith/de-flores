@@ -1,0 +1,17 @@
+// $em:16;
+// @function px-em($px) {
+//     $remDu: $px / 16px;
+//     @return $em * 1em;
+
+// }
+
+// $browser-context: 16; // Default
+
+// @function px-em($pixels, $context: $browser-context) {
+//     @return $pixels/$context em;
+// }
+
+@function px-em($size) {
+    $remSize: calc($size / 16px);
+    @return calc($remSize * 1em);
+  }

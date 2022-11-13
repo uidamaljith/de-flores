@@ -1,0 +1,33 @@
+@mixin vh-center {
+    position: absolute;
+    top: calc(#{100%} /2);
+    left: calc(#{100%} /2);
+    @include translateImp(calc(#{-100%} /2), calc(#{-100%} /2))
+}
+
+@mixin vh-centerImp {
+    position: absolute;
+    top: calc(#{100%} /2) !important;
+    left: calc(#{100%} /2) !important;
+    // @include translateImp(calc(-$full/2), calc(-$full/2))
+}
+
+@mixin h-center($hcenter:calc(#{-100%} /2)) {
+    position: absolute;
+    left:calc(#{100%} /2);
+    transform: translateX($hcenter);
+}
+
+@mixin v-center {
+    position: absolute;
+    top: calc(#{100%} /2);
+    transform: translateY(calc(#{100%} /2));
+}
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

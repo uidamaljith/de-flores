@@ -1,0 +1,40 @@
+html,
+body {
+    height: $full;
+}
+
+body {
+    // display: table;
+    // width: $full;
+    margin: $null;
+    padding: $null;
+    overflow-x: hidden;
+    line-height: normal;
+    // display: table;
+    // width: $full;
+}
+
+* {
+    padding: $null;
+    margin: $null;
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+.header {
+    @include device(lg) {
+        height: inherit;
+    }
+}
+a{
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: $null;
+    margin: $null;
+}
