@@ -1,46 +1,55 @@
-.profile-body{
-    background: url(#{$assetPath}/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
+.profile-body {
+  background: url(#{$assetPath}/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
+  
+  @include device(lg) {
+    overflow: hidden;
+  }
 }
 .main-content {
-    &.profile{
-       .left-content-de-flores{
-        padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    @include device(lg){
-        padding: 15px 0 0 40px;
-    
-    }
-      .inner-content-de-flores{
-        overflow: scroll;
+  &.profile {
+    padding-top: 58px;
+    padding-left: 58px;
+    padding-right: 58px;
+    // padding-bottom: 58px;
+    @include align-items(stretch !important);
+    .left-content-de-flores {
       
-         .first-content{
-            padding-bottom: 20px;
-                        }
-             }
-       .signature-content{
-        a{
-            color: #292A38;
-            img{
-                padding-right: 5px;
-                @include device(lg){
-                    padding-right: 10px;
-                }
-              
+      @include device(lg) {
+        padding-right: 58px;
+      }
+      .inner-content-de-flores {
+        overflow-y: auto;
+        max-width: 640px;
+        height: 100%;
+        .first-content {
+          padding-bottom: 20px;
+        }
+      }
+      .signature-content {
+        a {
+          display: block;
+          color: #292a38;
+          margin-bottom: 50px;
+          img {
+            padding-right: 5px;
+            @include device(lg) {
+              padding-right: 10px;
             }
+          }
         }
-       }
-       }
-       .right-content-de-flores{
-        @include device(lg){
-            @include flexbox();
-            place-self: flex-end;
-            padding-left: 123px;
-        }
-        figure{
-            margin-bottom: 0;
-        }
-       }
+      }
     }
+    .right-content-de-flores {
+        @include flexbox();
+        @include align-items(flex-end);
+        @include justify-content(center);
+      @include device(lg) {
+        
+      }
+      figure {
+        margin-bottom: 0;
+       
+      }
+    }
+  }
 }
