@@ -57,9 +57,7 @@ body {
         }
       }
 
-      .header-nav{
-        
-
+      .header-nav {
         @include device(lg) {
           display: none;
         }
@@ -74,25 +72,26 @@ body {
     }
     .main-content {
       @include flexbox();
-      @include flex-direction(column);
-      // @include justify-content(center);
-      @include align-items(center);
-      position: relative;
-      .header-nav{
+        @include flex-direction(column);
+        // @include justify-content(center);
+        @include align-items(center);
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        @include device(xl) {
+          @include flex-direction(row);
+          @include justify-content(center);
+          @include align-items(center);
+          width: 100%;
+        }
+      .header-nav {
         display: none;
         @include device(lg) {
           display: block;
         }
       }
-      @include device(xl) {
-        @include flex-direction(row);
-        @include justify-content(center);
-        @include align-items(center);
-        width: 100%;
-      }
       &.home {
-        width: 100%;
-        overflow: hidden;
+        
         .slider {
           @include order(2);
           margin-top: 50px;
@@ -196,7 +195,6 @@ body {
         }
       }
     }
-    
   }
   .footer {
     background-color: $white;

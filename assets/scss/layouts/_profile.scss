@@ -1,55 +1,81 @@
 .profile-body {
   background: url(#{$assetPath}/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
-  
+
   @include device(lg) {
     overflow: hidden;
   }
 }
-.main-content {
-  &.profile {
-    padding-top: 58px;
-    padding-left: 58px;
-    padding-right: 58px;
-    // padding-bottom: 58px;
-    @include align-items(stretch !important);
-    .left-content-de-flores {
-      
-      @include device(lg) {
+body{
+  .main-container{
+    .main-content {
+      &.profile {
+        padding-top: 58px;
+        padding-left: 58px;
         padding-right: 58px;
-      }
-      .inner-content-de-flores {
-        overflow-y: auto;
-        max-width: 640px;
-        height: 100%;
-        .first-content {
-          padding-bottom: 20px;
+        // padding-bottom: 58px;
+        position: relative;
+        @include align-items(stretch !important);
+        @include device(lg) {
+          
         }
-      }
-      .signature-content {
-        a {
-          display: block;
-          color: #292a38;
-          margin-bottom: 50px;
-          img {
-            padding-right: 5px;
-            @include device(lg) {
-              padding-right: 10px;
+        @include device(xl) {
+          @include justify-content(space-between);
+          width: 100%;
+        }
+        
+        .left-content-de-flores {
+          z-index: 9;
+          @include device(xl) {
+            padding-right: 58px;
+          }
+          .inner-content-de-flores {
+            overflow-y: auto;
+            height: 100%;
+            @include device(xxxl) {
+              max-width: 640px;
+            }
+            .first-content {
+              padding-bottom: 20px;
+            }
+          }
+          .signature-content {
+            a {
+              display: block;
+              color: #292a38;
+              margin-bottom: 50px;
+              img {
+                padding-right: 5px;
+                @include device(lg) {
+                  padding-right: 10px;
+                }
+              }
             }
           }
         }
-      }
-    }
-    .right-content-de-flores {
-        @include flexbox();
-        @include align-items(flex-end);
-        @include justify-content(center);
-      @include device(lg) {
-        
-      }
-      figure {
-        margin-bottom: 0;
-       
+        .right-content-de-flores {
+          @include flexbox();
+          @include align-items(flex-end);
+          @include justify-content(center);
+          z-index: 9;
+          @include device(lg) {
+          }
+          figure {
+            margin-bottom: 0;
+          }
+        }
+    
+        .profile-video {
+          position: absolute;
+          right: 0;
+          // top:0 ;
+          bottom: 0;
+          width: 100%;
+          z-index: 0;
+          // min-width: 100%;
+          // min-height: 100%;
+        }
       }
     }
   }
 }
+
