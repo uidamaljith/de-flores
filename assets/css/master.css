@@ -471,7 +471,7 @@ body .main-container aside {
 }
 @media (min-width: 992px) {
   body .main-container aside {
-    max-width: 320px;
+    max-width: 200px;
     height: 100%;
     -moz-flex-direction: column;
     flex-direction: column;
@@ -489,7 +489,7 @@ body .main-container aside .brand-logo img {
     max-width: 320px;
     -moz-flex-direction: column;
     flex-direction: column;
-    padding: 30px 60px;
+    padding: 30px 10px;
   }
 }
 @media (min-width: 992px) {
@@ -673,7 +673,7 @@ body .footer ul li:nth-child(2) {
   margin: 0px 20px;
 }
 body .footer p {
-  font-size: 0.875em;
+  font-size: 0.625em;
   text-align: center;
   display: none;
 }
@@ -691,7 +691,7 @@ body .footer#footer-mob {
   }
 }
 body .footer#footer-mob p {
-  font-size: 0.875em;
+  font-size: 0.625em;
   text-align: center;
   display: block;
 }
