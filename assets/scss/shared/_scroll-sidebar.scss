@@ -1,0 +1,47 @@
+.scroll-sidebar {
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include align-items(center);
+    width: 100vw;
+    height: 130px;
+    overflow: hidden;
+    // @include order(3);
+    //   animation: scroll $animationSpeed linear infinite;
+    @include device(lg) {
+      @include flexbox();
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+      @include justify-content(flex-start);
+      overflow: hidden;
+      max-width: 320px;
+      height: auto;
+    }
+    figure {
+      height: 100%;
+      display: block;
+      margin-bottom: 0px;
+      @include device(lg) {
+        height: auto;
+        vertical-align: top;
+      }
+      img {
+        height: $full;
+        @include device(lg) {
+          height: auto;
+          vertical-align: top;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      &.def-col {
+        &.def-col-2 {
+          @include device(lg) {
+            width: calc(100% / 2);
+          }
+        }
+      }
+    }
+  }

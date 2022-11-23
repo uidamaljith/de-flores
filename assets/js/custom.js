@@ -1,31 +1,34 @@
 $(function () {
   $("#brand").load("./shared/aside.html");
+  $("#main-menu").load("./shared/menu.html");
+  $("#side-gallery").load("./shared/side-gallery.html");
   $("#footer").load("./shared/footer.html");
   $("#footer-mob").load("./shared/footer.html");
+
   var bodyHgt = $("body").outerHeight();
-  var signatureHgt = $(".signature-content").outerHeight();
-  
- 
   if ($(window).width() < 992) {
     setTimeout(function () {
       var aSideHgt = $("#aside").outerHeight();
-  var sideBarHgt = $(".scroll-sidebar").outerHeight();
-  var footerHgt = $("#footer-mob").outerHeight();
-  var setHgt =  aSideHgt + sideBarHgt + footerHgt;
-  console.log(footerHgt);
+      var sideBarHgt = $(".scroll-sidebar").outerHeight();
+      var footerHgt = $("#footer-mob").outerHeight();
+      var setHgt = aSideHgt + sideBarHgt + footerHgt;
       $(".main-content.home").height(bodyHgt - setHgt);
     }, 500);
-  }else{
-    $(".inner-content-de-flores").height(bodyHgt - signatureHgt);
+  } else {
+    setTimeout(function () {
+      var mainContentHgt = $(".main-content").height();
+      var signatureHgt = $(".signature-content").outerHeight();
+      $(".inner-content-de-flores").css('max-height', mainContentHgt - signatureHgt - 100);
+    }, 500);
   }
 
-  $(document).on('click','.handberg',function(event){
-    event.preventDefault()
-    $('#menu').fadeIn();
-  })
-  $(document).on('click','.close-btn',function(event){
-    event.preventDefault()
-    $('#menu').fadeOut();
-  })
-
+  $(document).on("click", ".handberg", function (event) {
+    event.preventDefault();
+    $("#main-menu").toggleClass('open');
+    console.log('dsndln');
+  });
+  $(document).on("click", ".close-btn", function (event) {
+    event.preventDefault();
+    $("#main-menu").toggleClass('open');
+  });
 });
