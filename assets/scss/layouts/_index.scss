@@ -40,7 +40,7 @@ body {
       @include align-items(center);
       position: relative;
       @include device(lg) {
-        max-width: 320px;
+        max-width: 200px;
         height: 100%;
         @include flex-direction(column);
       }
@@ -53,7 +53,7 @@ body {
           width: 100%;
           max-width: 320px;
           @include flex-direction(column);
-          padding: 30px 60px;
+          padding: 30px 10px;
         }
       }
 
@@ -210,7 +210,7 @@ body {
       }
     }
     p {
-      font-size: px-em(14px);
+      font-size: px-em(10px);
       text-align: center;
       display: none;
       @include device(lg) {
@@ -224,7 +224,7 @@ body {
         display: none;
       }
       p {
-        font-size: px-em(14px);
+        font-size: px-em(10px);
         text-align: center;
         display: block;
         @include device(lg) {
