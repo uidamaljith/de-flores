@@ -13,12 +13,14 @@ $(function () {
       var footerHgt = $("#footer-mob").outerHeight();
       var setHgt = aSideHgt + sideBarHgt + footerHgt;
       $(".main-content.home").height(bodyHgt - setHgt);
+      $(".shocase-gallery").css('max-height', bodyHgt - (aSideHgt + footerHgt));
     }, 500);
   } else {
     setTimeout(function () {
       var mainContentHgt = $(".main-content").height();
       var signatureHgt = $(".signature-content").outerHeight();
       $(".inner-content-de-flores").css('max-height', mainContentHgt - signatureHgt - 200);
+      $(".shocase-gallery").css('max-height', bodyHgt);
     }, 500);
   }
 

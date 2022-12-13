@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::De Flores Design Studio::</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/master.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+    <!-- MDB -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js" ></script> -->
+    <!-- <script src="assets/js/owl.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+    
+</head>
+
+<body class="showcase-body">
+    <div id="main-menu"></div>
+    <div class="main-container">
+        <aside id="aside">
+            <div id="brand" class="brand"></div>
+            <div class="header-nav">
+                <a href="" class="handberg"><span></span></a>
+            </div>
+            <div id="footer" class="footer"></div>
+        </aside>
+        <div class="main-content showcase">
+            <div class="header-nav">
+                <a href="" class="handberg"><span></span></a>
+            </div>
+            <div class="shocase-gallery-conatiner">
+                <ul class="gallery-trigger">
+                    <li class="active"><a href="#showcase-images">Photos</a></li>
+                    <li><a href="#showcase-videos">Videos</a></li>
+                </ul>
+                <div class="shocase-gallery scroll-bar open" id="showcase-images">
+
+                </div>
+                <div class="shocase-gallery scroll-bar videos" id="showcase-videos">
+
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=Vzm470SrDrg">
+                            <img src="https://i.ytimg.com/vi/Vzm470SrDrg/maxresdefault.jpg" alt="">
+                            <span>Top 10 Models: Best Runway Walks 2018-2020</span>
+                        </a>
+                    </div>
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=jnUFDqoUyuk?t=7">
+                            <img src="https://i.ytimg.com/vi_webp/jnUFDqoUyuk/maxresdefault.webp" alt="">
+                            <span>Priyank Sharma Ramp Walk For ONLY AND SONS | High Street Fashion Show</span>    
+                        </a>
+                    </div>
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=Yt7z0kMGeug?t=8">
+                            <img src="https://i.ytimg.com/vi/Yt7z0kMGeug/maxresdefault.jpg" alt="">
+                            <span>The Manish Malhotra Mijwan Couture Fashion Show 2022</span>    
+                        </a>
+                    </div>
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=scPPrTLyEM4?t=21">
+                            <img src="https://i.ytimg.com/vi/scPPrTLyEM4/sddefault.jpg" alt="">
+                            <span>Kangana Ranaut, Malaika Arora, Shilpa Shetty</span>    
+                        </a>
+                    </div>
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=T4sqXFjeW-0?t=21">
+                            <img src="https://i.ytimg.com/vi_webp/T4sqXFjeW-0/maxresdefault.webp" alt="">
+                            <span>Manish Malhotra | Bridal Couture,2021 </span>
+                                </a>
+                    </div>
+                    <div class="video-thumb def-colum-4">
+                        <a class="popup-youtube" href="https://www.youtube.com/watch?v=zsu2WRFaUoQ?t=17">
+                            <img src="https://i.ytimg.com/vi/zsu2WRFaUoQ/sddefault.jpg" alt="">
+                            <span>
+                                Versace Spring Summer 2022 | Fashion Show
+                            </span>    
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="footer-mob" class="footer"></div>
+    </div>
+
+</body>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script src="assets/js/jquery.magnify.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script>
+
+
+    $(function () {
+
+
+        $('.popup-youtube').magnificPopup({
+            type: 'iframe'
+        });
+
+        $(document).on('click', '.gallery-trigger a', function (event) {
+            event.preventDefault();
+            var getID = $(this).attr('href');
+            $(this).parent().siblings().removeClass('active');
+            $(this).parent().addClass('active');
+            $(document).find(getID).siblings().removeClass('open');
+            $(document).find(getID).addClass('open');
+            // console.log(getID);
+        })
+
+        var dir = "assets/images/gallery/showcase/";
+        var fileextension = "@2x.png";
+        var windowLocation = window.location.host;
+
+        function imageloop(i) {
+            if (i <= 4) {
+                $("<img />").attr('src', dir + i + fileextension).appendTo("#showcase-images").wrap("<a data-magnify='gallery' data-group='a'  href='" + dir + i + fileextension + "' class='img def-colum-4' data-id='" + '#' + i + fileextension + "'></a>");
+            } if (i > 4 && i < 8) {
+                $("<img />").attr('src', dir + i + fileextension).appendTo("#showcase-images").wrap("<a data-magnify='gallery' data-group='a'  href='" + dir + i + fileextension + "' class='img def-colum-3' data-id='" + '#' + i + fileextension + "'></a>");
+            } if (i > 7 && i < 12) {
+                $("<img />").attr('src', dir + i + fileextension).appendTo("#showcase-images").wrap("<a data-magnify='gallery' data-group='a'  href='" + dir + i + fileextension + "' class='img def-colum-4' data-id='" + '#' + i + fileextension + "'></a>");
+            } if (i > 11 && i < 15) {
+                $("<img />").attr('src', dir + i + fileextension).appendTo("#showcase-images").wrap("<a data-magnify='gallery' data-group='a'  href='" + dir + i + fileextension + "' class='img def-colum-3' data-id='" + '#' + i + fileextension + "'></a>");
+            }
+        }
+
+        $.ajax({
+
+            url: dir,
+            success: function (data) {
+
+                $(data).find("a:contains(" + fileextension + ")").each(function (i) {
+                    var filename = this.href.replace(window.location.host, "").replace("http://", "");
+                    var n = i + 1;
+                    imageloop(n)
+                })
+            }
+
+        });
+
+        window.prettyPrint && prettyPrint();
+        var defaultOpts = {
+            draggable: true,
+            resizable: true,
+            movable: true,
+            keyboard: true,
+            title: true,
+            modalWidth: 320,
+            modalHeight: 320,
+            fixedContent: true,
+            fixedModalSize: false,
+            initMaximized: false,
+            gapThreshold: 0.02,
+            ratioThreshold: 0.1,
+            minRatio: 0.05,
+            maxRatio: 16,
+            headToolbar: ['maximize', 'close'],
+            footToolbar: ['zoomIn', 'zoomOut', 'prev', 'fullscreen', 'next', 'actualSize', 'rotateRight'],
+            multiInstances: true,
+            initEvent: 'click',
+            initAnimation: true,
+            fixedModalPos: false,
+            zIndex: 1090,
+            dragHandle: '.magnify-modal',
+            progressiveLoading: true
+        };
+
+        var vm = new Vue({
+            el: '#showcase-images',
+            data: {
+                options: defaultOpts
+            },
+            methods: {
+
+            },
+            updated: function () {
+                $('[data-magnify]').magnify(this.options);
+            }
+        });
+
+
+    })
+
+
+
+</script>
+
+</html>

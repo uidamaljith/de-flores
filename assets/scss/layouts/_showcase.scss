@@ -1,0 +1,163 @@
+.showcase-body {
+  background: url(#{$assetPath}/bg-patterns/profile-bg.png) repeat-x fixed 0 0;
+
+  @include device(lg) {
+    overflow: hidden;
+  }
+}
+
+body {
+  .main-container {
+    .main-content {
+      &.showcase {
+        @include justify-content(flex-start);
+        @include align-items(flex-start);
+        .shocase-gallery-conatiner {
+          @include flexbox();
+          @include flex-direction(column);
+          @include justify-content(flex-start);
+          // @include flex(1 0 auto);
+          width: 100%;
+          .gallery-trigger {
+            @include flexbox();
+            @include flex-direction(row);
+            @include justify-content(flex-start);
+            padding-left: 150px;
+            padding-right: 150px;
+            width: 100%;
+            li {
+              a {
+                padding: 40px;
+                display: block;
+                background-color: rgba($primary-color, .6);
+                color: $white;
+              }
+              &.active{
+                a{
+                  background-color: $primary-color;
+                }
+              }
+            }
+          }
+          .shocase-gallery {
+            display: none;
+            @include flex-direction(column);
+            overflow-y: auto;
+            border-top: 3px solid rgba($primary-color, 1);
+
+            @include device(lg) {
+              @include flex-direction(row);
+              @include flex-wrap(wrap);
+              // max-width: 720px;
+              padding-left: 150px;
+              padding-right: 150px;
+              width: 100%;
+            }
+
+            &.open{
+              @include flexbox();
+            }
+
+            &.videos{
+              .video-thumb {
+                border: thin solid rgba($black, 0.8);
+                border-left: none;
+                border-top: none;
+                &[class*="def-colum-"] {
+                  width: 100%;
+                  // @include flex(0 0 100%);
+                }
+
+                &.def-colum-4 {
+                  @include device(lg) {
+                    width: calc(100% / 4);
+                  }
+                }
+                &.def-colum-3 {
+                  @include device(lg) {
+                    width: calc(100% / 3);
+                  }
+                }
+                img {
+                  width: 100%;
+                  min-height: 320px;
+                  vertical-align: top;
+                }
+                span{
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  padding: 10px;
+                  background-color: $black;
+                  display: block;
+                  white-space: nowrap;
+                  color: $white;
+                }
+                .popup-youtube{
+                  position: relative;
+                  &:after, &:before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                  }
+                  &:after {
+                    width: 0;
+                    height: 0;
+                    border: 16px solid transparent;
+                    border-left: 20px solid #fff;
+                    margin-top: -18px;
+                    margin-left: -7px;
+                    -webkit-filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.25));
+                  }
+                  &:before {
+                    margin-top: -34px;
+                    margin-left: -34px;
+                    width: 60px;
+                    height: 60px;
+                    border: 3px solid #fff;
+                    border-radius: 50%;
+                    box-shadow: 0 0 4px rgba(black, 0.18);
+                    background: rgba(black, 0.42);
+                  }
+                  &:hover {
+                    &:before {
+                      background: rgba(black, 0.7);
+                    }
+                  }
+                }
+                
+              }
+            }
+
+            a {
+              display: block;
+
+              &.img {
+                &[class*="def-colum-"] {
+                  width: 100%;
+                  // @include flex(0 0 100%);
+                }
+
+                &.def-colum-4 {
+                  @include device(lg) {
+                    width: calc(100% / 4);
+                  }
+                }
+                &.def-colum-3 {
+                  @include device(lg) {
+                    width: calc(100% / 3);
+                  }
+                }
+                img {
+                  width: 100%;
+                  vertical-align: top;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
