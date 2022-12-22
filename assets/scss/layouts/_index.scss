@@ -10,6 +10,15 @@ $imageHover: all 750ms cubic-bezier(0.545, 0.005, 0, 1);
   }
 }
 
+@keyframes translateinfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-180px * 6));
+  }
+}
+
 body {
   // background-image: url();
   overflow-x: hidden;
@@ -33,20 +42,33 @@ body {
       width: 100%;
       padding: 15px;
       background-color: $nutral-color;
-      // background-color: lighten($primary-color, 10%);
-
       @include flexbox();
       @include flex-direction(row);
       @include justify-content(space-between);
       @include align-items(center);
       position: relative;
       @include device(lg) {
-        max-width: 200px;
+        max-width: 320px;
         height: 100%;
         @include flex-direction(column);
       }
+      .brand {
+        margin-right: 50px;
+        overflow: hidden;
+        @include device(lg) {
+          width: 100%;
+        }
+        @include device(xl) {
+          width: 100%;
+          margin-right: 0px;
+        }
+      }
       .brand-logo {
         width: 90px;
+        display: none;
+        @include device(lg) {
+          display: block;
+        }
         img {
           width: 100%;
         }
@@ -56,6 +78,89 @@ body {
           @include flex-direction(column);
           padding: 30px 10px;
         }
+      }
+
+      .collection {
+        ul {
+          @include flexbox();
+          @include flex-direction(row);
+          @include justify-content(center);
+          width: calc(300px * 5);
+          // @include flex-wrap(wrap);
+          @include device(xl) {
+            // @include flex-direction(column);
+            @include align-items(center);
+            @include flex-wrap(nowrap);
+          }
+          li {
+            @include flexbox();
+            @include flex-direction(row);
+            @include align-items(center);
+            @include justify-content(center);
+            white-space: nowrap;
+            width: 300px;
+            padding-left: 30px;
+            padding-left: 30px;
+            animation: translateinfinite 60s linear infinite;
+            border-right: thin solid $primary-color;
+            @include device(xl) {
+              white-space: nowrap;
+              // text-align: center;
+            }
+
+            span {
+              font-size: 16px;
+              font-weight: bold;
+              // color: black;
+              letter-spacing: 0;
+              padding: 0.25em 0 0.325em;
+              display: block;
+              margin: 0 auto;
+              text-shadow: 1px 1px 80px rgba(255, 255, 255, 1);
+              // text-shadow: 2px 2px #000;
+              // text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,-1px 1px 0 #000, 1px 1px 0 #000;
+              background: url(#{$assetPath}/layout-images/animated-text-fill.png)
+                repeat-y;
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              -webkit-animation: aitf 80s linear infinite;
+              -webkit-transform: translate3d(0, 0, 0);
+              -webkit-backface-visibility: hidden;
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+
+            &::after {
+              content: url(#{$assetPath}/layout-images/floral-bullet.svg);
+              width: 20px;
+              display: block;
+            }
+
+            &::before {
+              content: url(#{$assetPath}/layout-images/floral-bullet.svg);
+              width: 20px;
+              display: block;
+            }
+
+            @include device(lg) {
+              &::before {
+                content: url(#{$assetPath}/layout-images/floral-bullet.svg);
+                width: 20px;
+                display: block;
+              }
+            }
+
+            &:first-child {
+              &::before {
+                content: url(#{$assetPath}/layout-images/floral-bullet.svg);
+                width: 20px;
+                display: block;
+              }
+            }
+          }
+        }
+        // @include align-items(center);
       }
 
       .header-nav {
@@ -73,18 +178,18 @@ body {
     }
     .main-content {
       @include flexbox();
-        @include flex-direction(column);
-        // @include justify-content(center);
+      @include flex-direction(column);
+      // @include justify-content(center);
+      @include align-items(center);
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      @include device(xl) {
+        @include flex-direction(row);
+        @include justify-content(center);
         @include align-items(center);
-        position: relative;
         width: 100%;
-        overflow: hidden;
-        @include device(xl) {
-          @include flex-direction(row);
-          @include justify-content(center);
-          @include align-items(center);
-          width: 100%;
-        }
+      }
       .header-nav {
         display: none;
         @include device(lg) {
@@ -92,53 +197,73 @@ body {
         }
       }
       &.home {
-        
         .slider {
           @include order(2);
-          margin-top: 50px;
+          margin-top: 10px;
           z-index: 99;
+          overflow: hidden;
+          // margin-top: auto;
+          // margin-bottom: auto;
+          width: 500px;
           @include device(xl) {
             @include order(2);
             margin-top: auto;
-            // width: calc(100% - 320px);
+            margin-bottom: auto;
+            width: 500px;
           }
-          ul {
-            li {
+          .banner-slider {
+            z-index: 9999;
+            div.item {
               img {
                 width: $full;
                 vertical-align: bottom;
                 max-width: 410px;
+                margin: auto;
                 @include device(lg) {
                   display: block;
                   margin: 0 auto;
                 }
                 @include device(xl) {
-                  max-width: 779px;
+                  max-height: 750px;
+                  height: 100%;
                 }
               }
             }
           }
         }
         .cta-action {
-          @include order(1);
-          background-color: rgba($black, 0.3);
+          @include order(2);
+          background-color: rgba($black, 0.6);
           padding: 15px;
           z-index: 99;
-          @include device(lg) {
+          position: absolute;
+          bottom: 0px;
+          border: thin solid $primary-color;
+          margin-bottom: 20px;
+          @include device(xl) {
             @include order(1);
             margin-top: auto;
             margin-bottom: auto;
             // margin-right: 60px;
             background-color: transparent;
             max-width: 360px;
+            position: initial;
           }
           @include device(xl) {
           }
+          > img {
+            width: 250px;
+            margin: 0px auto;
+            display: block;
+          }
           h4 {
-            font-size: px-em(57px);
+            font-size: px-em(29px);
             font-weight: normal;
             line-height: 48px;
             color: rgba($white, 0.6);
+            @include device(xl) {
+              font-size: px-em(58px);
+            }
           }
           .cta {
             font-size: px-em(18px);
@@ -208,6 +333,12 @@ body {
         &:nth-child(2) {
           margin: 0px 20px;
         }
+
+        a {
+          img {
+            width: 30px;
+          }
+        }
       }
     }
     p {
@@ -228,10 +359,20 @@ body {
         font-size: px-em(10px);
         text-align: center;
         display: block;
+        color: $white;
         @include device(lg) {
           display: none;
         }
       }
     }
+  }
+}
+
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

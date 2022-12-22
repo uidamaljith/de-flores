@@ -1,38 +1,92 @@
-body{
-    .main-container{
-      .main-content {
-        &.de-flores{
-.right-content-de-flores{
-    @include flexbox();
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    @include justify-content(center);
-    @include align-items(center);
-    max-width: 460px;
-    width: 100%;
-    figure{
-        
-        margin-bottom: 0px;
-        &:first-child{
-            margin: 0px auto;
-            align-self: center;
-            width: 100%;
+body {
+  .main-container {
+    .main-content {
+      &.de-flores {
+        @include device(lg) {
+          max-width: calc(100% - 660px);
+          margin: 0px auto;
         }
-        &:last-child{
-            margin: 0px auto;
-            width: 100%;
-        }
-        img{
-            // width: 237px;
-            width: 230px;
-            margin: 0px auto;
-            display: block;
-        }
-    }
-    
-}
+        .right-content-de-flores {
+          @include order(2);
+          display: none;
 
-              }
-           }
-         }
+          @include device(xxxl) {
+            max-width: 490px;
+            width: 100%;
+            @include flexbox();
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            @include justify-content(center);
+            @include align-items(center);
+            @include order(1);
+          }
+          figure {
+            // margin-bottom: 0px;
+            padding: 3px 3px;
+            &:first-child {
+              margin: 0px auto;
+              align-self: center;
+              width: 100%;
+            }
+            &:last-child {
+              margin: 0px auto;
+              width: 100%;
+            }
+            img {
+              // width: 237px;
+              width: 230px;
+              margin: 0px auto;
+              display: block;
+              border: 3px solid white;
+              //   outline: 3px solid white;
+            }
+          }
         }
+
+        .content-de-flores {
+          margin: 50px auto 0px;
+          width: calc(100% - 50px);
+          @include device(xl) {
+            width: calc(100% - 200px);
+            margin-left: 50px;
+            margin-right: 50px;
+            @include order(2);
+          }
+          h2 {
+            font-size: 28px;
+            line-height: 28px;
+            font-style: italic;
+            margin-bottom: 40px;
+            font-family: 'Domine', serif;
+            @include device(lg) {
+              font-size: 56px;
+              line-height: 64px;
+              font-style: italic;
+              margin-bottom: 40px;
+            }
+          }
+          .inner-content-de-flores {
+            overflow-y: auto;
+            height: 100%;
+            margin-bottom: 0px;
+            @include device(lg) {
+              //   width: calc(100% - 660px);
+              //   margin-left: 50px;
+              //   margin-right: 50px;
+            }
+
+            p {
+              padding-bottom: 20px;
+            }
+            img{
+              width: 250px;
+              @include device(lg) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

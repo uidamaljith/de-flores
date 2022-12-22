@@ -5,51 +5,73 @@
     overflow: hidden;
   }
 }
-body{
-  .main-container{
+body {
+  .main-container {
     .main-content {
       &.profile {
         padding-top: 58px;
-        padding-left: 58px;
-        padding-right: 58px;
+        padding-left: 30px;
+        padding-right: 30px;
         // padding-bottom: 58px;
         position: relative;
         @include align-items(stretch !important);
         @include device(lg) {
-          
         }
         @include device(xl) {
           @include justify-content(space-between);
           width: 100%;
         }
-        
+
         .left-content-de-flores {
           z-index: 9;
           @include device(xl) {
-            padding-right: 58px;
+            padding:0px 100px;
           }
           .inner-content-de-flores {
             overflow-y: auto;
             height: 100%;
+            margin-bottom: 50px;
             @include device(xxxl) {
-              max-width: 640px;
+              // max-width: 640px;
             }
             .first-content {
               padding-bottom: 20px;
             }
           }
-          .signature-content {
-            a {
-              display: block;
-              color: #292a38;
-              margin-bottom: 50px;
-              img {
-                padding-right: 5px;
-                @include device(lg) {
-                  padding-right: 10px;
+          .profile-box {
+            @include flexbox();
+            @include flex-direction(column);
+            // @include align-items(flex-end);
+            @include justify-content(flex-start);
+            @include device(lg) {
+              @include flex-direction(row);
+              @include justify-content(space-between);
+             }
+            .signature-content {
+              a {
+                display: block;
+                color: #292a38;
+                margin-bottom: 50px;
+                img {
+                  padding-right: 5px;
+                  @include device(lg) {
+                    padding-right: 10px;
+                  }
                 }
               }
             }
+
+            .profile-video {
+              width: 100%;
+              max-width: 320px;
+              z-index: 0;
+              @include border-radius(10px);
+              overflow: hidden;
+              @include device(lg) {
+               @include order(2);
+              }
+            }
+            
           }
         }
         .right-content-de-flores {
@@ -63,17 +85,16 @@ body{
             margin-bottom: 0;
           }
         }
-    
-        .profile-video {
-          position: absolute;
-          right: 0;
-          // top:0 ;
-          bottom: 0;
-          width: 100%;
-          z-index: 0;
-          // min-width: 100%;
-          // min-height: 100%;
-        }
+
+        // .profile-video {
+        //   position: absolute;
+        //   right: 0;
+        //   top:0 ;
+        //   bottom: 0;
+        //   width: 100%;
+        //   z-index: 0;
+
+        // }
       }
     }
   }

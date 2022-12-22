@@ -5,15 +5,18 @@ $(function () {
   $("#footer").load("./shared/footer.html");
   $("#footer-mob").load("./shared/footer.html");
 
+  $(window).resize(function(){location.reload();});
+
   var bodyHgt = $("body").outerHeight();
   if ($(window).width() < 992) {
     setTimeout(function () {
       var aSideHgt = $("#aside").outerHeight();
       var sideBarHgt = $(".scroll-sidebar").outerHeight();
       var footerHgt = $("#footer-mob").outerHeight();
-      var setHgt = aSideHgt + sideBarHgt + footerHgt;
-      $(".main-content.home").height(bodyHgt - setHgt);
-      $(".shocase-gallery").css('max-height', bodyHgt - (aSideHgt + footerHgt));
+      var setHgt = aSideHgt + footerHgt;
+      $(".main-content.home").innerHeight(bodyHgt - setHgt);
+      // $(".shocase-gallery").css('max-height', bodyHgt - (aSideHgt + footerHgt));
+      
     }, 500);
   } else {
     setTimeout(function () {
@@ -21,6 +24,7 @@ $(function () {
       var signatureHgt = $(".signature-content").outerHeight();
       $(".inner-content-de-flores").css('max-height', mainContentHgt - signatureHgt - 200);
       $(".shocase-gallery").css('max-height', bodyHgt);
+      $(".inner-content-de-flores").css('max-height', bodyHgt - 500);
     }, 500);
   }
 

@@ -18,10 +18,10 @@
     transform: translateX($hcenter);
 }
 
-@mixin v-center {
+@mixin v-center() {
     position: absolute;
     top: calc(#{100%} /2);
-    transform: translateY(calc(#{100%} /2));
+    transform: translateY(calc(#{-100%} /2));
 }
 
 @mixin clearfix {

@@ -8,6 +8,7 @@
     overflow: hidden;
     // @include order(3);
     //   animation: scroll $animationSpeed linear infinite;
+    display: none;
     @include device(lg) {
       @include flexbox();
       @include flex-direction(row);
